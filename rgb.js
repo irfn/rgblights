@@ -28,16 +28,11 @@ var greenState = greenStateLow + green;
 var blueState = blueStateLow + blue;
 
 
-const execFile = require('child_process').execFile;
+const execSync = require('child_process').execSync;
 
 
 function sendCode(state) {
-    execFile('/home/irfn/433Utils/RPi_utils/codesend', [state], function(error, stdout, stderr) {
-            if (error) {
-                throw error;
-            }
-            console.log(stdout);
-    });
+    execSync('sudo /home/irfn/433Utils/RPi_utils/codesend '+state);
 }
 sendCode(redState);
 sendCode(greenState);
