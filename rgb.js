@@ -28,14 +28,15 @@ var greenState = greenStateLow + green;
 var blueState = blueStateLow + blue;
 
 
-const spawn = require('child_process').spawn;
+const execFile = require('child_process').execFile;
+
 
 function sendCode(state) {
-    const send = spawn('sudo', ['/home/irfn/433Utils/RPi_utils/codesend', state]);
-
-
-    send.stdout.on('data', function (data) {
-        console.log("stdout:" + data);
+    execFile('/home/irfn/433Utils/RPi_utils/codesend', [state], function(error, stdout, stderr) {
+            if (error) {
+                throw error;
+            }
+            console.log(stdout);
     });
 }
 sendCode(redState);
