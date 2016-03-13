@@ -14,5 +14,8 @@
     "controller"
   ],
   "author": "Irfan Shah <mail.urfi@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "rgb": "^0.1.0"
+  }
 }
